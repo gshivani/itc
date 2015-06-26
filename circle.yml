@@ -6,12 +6,12 @@
 
 dependencies:
 	pre:
-				# Clean up all old docker images, just in case.
+	# Clean up all old docker images, just in case.
     - docker rm $(docker ps -aq) || true
     - docker rmi $(docker images -q) || true
     # Uses ENVs set in the CircleCI UI.
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS quay.io
-		
+
 deployment:
   dev: 
     branch: master
